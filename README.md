@@ -30,6 +30,7 @@
 
 ## READMEs
 * All repositories should have a `README.md` file explaining their purpose, how they were used, and how to use them. (They don't need to be added until the code is publicized at the end of each season.)
-* At the top of each README, a set of links should be present linking to the other repositories used that season.
+* At the top of each README, a short title should be present saying what the repository is. For example, "2016 Robot Code" or "2015 User Interface".
+* Underneath the title, a set of links should be present linking to the other main repositories used that season.
 
 An example of a good README can be found [here](https://github.com/frc1418/2016-robot/blob/master/README.md).
