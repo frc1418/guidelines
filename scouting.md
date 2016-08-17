@@ -1,0 +1,3 @@
+# Scouting
+
+Coming soon
