@@ -12,10 +12,27 @@ This list contains general rules and regulations to be applied for all code writ
 
         Or, in Python:
 
-            # TODO: Test this autonomous at a slower speed.
 
-* Always follow style guides and best practices. For example, when writing Python code, follow the [PEP 8 Style Guide](https://www.python.org/dev/peps/pep-0008).
-    * For web languages (HTML/CSS/JS), follow the [Viget FED Best Practices](https://github.com/greypants/FED-docs/blob/master/Best-Practices.md).
+            # TODO: Test this autonomous at a slower speed. Normal Priority
+            # FIXME: Autonomous no longer drives. High Priority
+        To view a list of `TODO`s,  `Window`->`Show View`->`Tasks` while in Eclipse. Label tasks `FIXME` for higher priority.
+
+* Always follow style guides and best practices. In our code, we like to follow these rules
+
+
+  |Type | Style | Example|
+  |:------------------------:|:-:|:-:|
+  | Class Names | CapitalizedWords |ModularAutonomous |
+  | Variables | mixedCase/camelCase | elevatorPosition |
+  | Methods | lowercase_with_underscore <br> \_leading_underscore_for_private | get_gyro <br> \_detect_position_index|
+  | Spaces | 4 Spaces, no tabs | You can tell eclipse to put in 4 <br>spaces instead of tabs|
+  | Modules | lowercasewords | shootball.py |
+  | Folders | lowercasewords |  automations |
+
+* For anything else consult the [PEP 8 Style Guide](https://github.com/greypants/FED-docs/blob/master/Best-Practices.md)
+
+
+* For web languages (HTML/CSS/JS), follow the [Viget FED Best Practices](https://www.python.org/dev/peps/pep-0008).
 * Before being publicized at the end of the season, all repositories should have a `README.md` markdown file explaining their purpose, how the code was used during the season, and how those interested can make use of the code themselves.
     * At the top of each README, a short title should be present saying what the repository is. For example, "2016 Robot Code" or "2015 User Interface".
     * Underneath the title, a set of links should be present linking to the other main repositories used that season.
@@ -46,7 +63,7 @@ This list contains general rules and regulations to be applied for all code writ
     * Wait for the pull request to be merged by another team member. Merging your own pull request is bad practice, but you may do it if it's extremely urgent.
 * Only commit through your own GitHub account. No using dummy accounts.
     * Relatedly, your GitHub account should have your real name on it. (You can use whatever you want for your username, but your real name should be used on the _Name_ portion of your account page.)
-* Use `.gitignore` files to prevent committing of useless temporary folders and files like `.DS_Store`, `.project`, `.pydevproject`, `node_modules`, and others. [Help with `.gitignore` files](https://help.github.com/articles/ignoring-files)
+* Use `.gitignore` files to prevent committing of useless temporary folders and files like `.DS_Store`, `.project`, `.pydevproject`, `node_modules`, and others. [Help with .gitignore files](https://help.github.com/articles/ignoring-files)
 
 ## Miscellaneous
 * Save a good reason not to, please use the portrait of yourself from [the Team Profiles page](http://1418.team) on our website as your GitHub user picture. You'll need to scale it up to 512x512 with [GIMP](http://www.gimp.org/downloads) or another photo editing tool.
