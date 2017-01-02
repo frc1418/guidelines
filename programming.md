@@ -5,7 +5,7 @@ This list contains general rules and regulations to be applied for all code writ
 * All code (and pull request discussion, etc.) must be PG. All code is eventually public and looked at by many other teams. Showing off a repository full of cuss words is bad PR and should be avoided.
 * All competition repositories should be named [year]-[purpose]. For example, "2016-robot" for the 2016 robot code, or "2015-UI" for the 2015 User Interface.
     * Non-competitive repositories don't need to follow this standard. For example, if you create a tool that isn't bound to any one competition, you can name it anything you see fit, like [pybasictraining](https://github.com/frc1418/pybasictraining), [Victiscout](https://github.com/frc1418/Victiscout), or [RobotRecorder](https://github.com/frc1418/RobotRecorder).
-* Use detailed comments in all code, written in proper English. Anyone on the team with even mediocre knowledge of the language the code is written in should be able to read your comments and have a good understanding of what the code does and why.
+* Use detailed comments in all code, written in proper English. Anyone on the team with even mediocre knowledge of the language the code is written in should be able to read your comments and have a good understanding of what the code does and why. A good rule of thumb is *what*, *how*, and *why*. Comment *what* the class is used for, *how* a method accomplishes it's goal, and *why* you do specific lines of code. There is no need to explain simple code such as `x + = 1 #Increment x`. These comments actually distract from the code and make it harder to read
     * Furthermore, write detailed TODOs wherever you think of something that could be improved (if you aren't able to improve it at the moment.) For example, in JavaScript:
 
             // TODO: Make button move better
@@ -23,16 +23,15 @@ This list contains general rules and regulations to be applied for all code writ
   |Type | Style | Example|
   |:------------------------:|:-:|:-:|
   | Class Names | CapitalizedWords |ModularAutonomous |
-  | Variables | mixedCase/camelCase | elevatorPosition |
-  | Methods | lowercase_with_underscore <br> \_leading_underscore_for_private | get_gyro <br> \_detect_position_index|
+  | Variables | lowercase\_with\_underscore | elevator\_position |
+  | Methods | lowercase\_with\_underscore <br> \_leading\_underscore\_for\_private | get\_gyro <br> \_detect\_position\_index|
   | Spaces | 4 Spaces, no tabs | You can tell eclipse to put in 4 <br>spaces instead of tabs|
   | Modules | lowercasewords | shootball.py |
   | Folders | lowercasewords |  automations |
 
-* For anything else consult the [PEP 8 Style Guide](https://github.com/greypants/FED-docs/blob/master/Best-Practices.md)
+* For anything else consult the [PEP 8 Style Guide](https://www.python.org/dev/peps/pep-0008)
 
-
-* For web languages (HTML/CSS/JS), follow the [Viget FED Best Practices](https://www.python.org/dev/peps/pep-0008).
+* For web languages (HTML/CSS/JS), follow the [Viget FED Best Practices](https://github.com/greypants/FED-docs/blob/master/Best-Practices.md).
 * Before being publicized at the end of the season, all repositories should have a `README.md` markdown file explaining their purpose, how the code was used during the season, and how those interested can make use of the code themselves.
     * At the top of each README, a short title should be present saying what the repository is. For example, "2016 Robot Code" or "2015 User Interface".
     * Underneath the title, a set of links should be present linking to the other main repositories used that season.
@@ -40,30 +39,38 @@ This list contains general rules and regulations to be applied for all code writ
     * An example of a good README can be found [here](https://github.com/frc1418/2016-robot/blob/master/README.md).
 * Each public repository must additionally include a `LICENSE` file explaining how others are allowed to use our team code. You can use [this website](http://choosealicense.com) if you're not sure which license you should include on the repository. When in doubt, use MIT.
 
-## Committing
-* All commit names must be coherent explanations of the commit, written in legible English. You don't have to use full sentences, but the names should be clear, concise, and PG.
+##Properties
+In Java, attributes can be private, and sometimes have getters and setters. Python doesn't have private variables, so they can always be accessed just by referencing them, e.g. `x = class.var` and `class.var = 5`. This is very pythonic, and you want to use this as much as possible. 
 
-    **Good:**
-    ![Good commit](images/commit2.png)
-    ![Good commit](images/commit5.png)
+Sometimes the variable you need isn't stored as a variable in the class. An example in the 2016 code is the gyro. Originally we had
 
-    **Bad:**
-    ![Bad commit](images/commit3.png)
-    ![Bad commit](images/commit6.png)
+```
+def return_gyro_angle(self):
+	return self.navx.getYaw()
+```
+but a more pythonic way of doing it would be to use a property
 
-    **Even worse:**
-    ![Worse commit](images/commit1.png)
-    ![Worse commit](images/commit4.png)
+```
+@property
+def gyro_angle(self):
+	return self.navx.getYaw()
+```
+now, you can access the gyro angle with just `self.gyro_angle`
+You can use properties as a setter as well. Let's say you need to do more than assign a variable when you call a setter. 
 
-* Never commit directly to origin (the repository owned by the team GitHub organization). Instead:
-    * Fork the repository to your personal GitHub account.
-    * Make a branch on that fork and name it after whatever you're changing. For example, `add-autonomous` or `better-buttons`.
-    * Perform your changes on that branch.
-    * Open a pull request to merge your changes to the master branch of the main repository.
-    * Wait for the pull request to be merged by another team member. Merging your own pull request is bad practice, but you may do it if it's extremely urgent.
-* Only commit through your own GitHub account. No using dummy accounts.
-    * Relatedly, your GitHub account should have your real name on it. (You can use whatever you want for your username, but your real name should be used on the _Name_ portion of your account page.)
-* Use `.gitignore` files to prevent committing of useless temporary folders and files like `.DS_Store`, `.project`, `.pydevproject`, `node_modules`, and others. [Help with .gitignore files](https://help.github.com/articles/ignoring-files)
+```
+@var.setter
+def var(self, value):
+	self._var = value
+	self._boolean = True
+
+##Testing and Deploying
+pyfrc comes with builtin tests. These tests are to help you catch any errors in your code. To test code on its own, you can run `./robot.py test`. If you are deploying code to the robot, use the `deploy` argument. This will automatically test the code and deploy it. The code *will not* deploy if the tests don't pass. However, there are some situations when you want to bypass the tests and deploy the code. Likely scenarious are if the tests are failing in autonomous, but you want to run teleop. To bypass the tests:
+
+`./robot.py deploy --skip-tests`
+
+It's not a bad thing to skip tests, as long as you only do it in controlled situations.
 
 ## Miscellaneous
-* Save a good reason not to, please use the portrait of yourself from [the Team Profiles page](http://1418.team) on our website as your GitHub user picture. You'll need to scale it up to 512x512 with [GIMP](http://www.gimp.org/downloads) or another photo editing tool.
+* Save a good reason not to, please use the portrait of yourself from [the Team Profiles page](http://1418.team/team) on our website as your GitHub user picture. You'll need to scale it up to 512x512 with [GIMP](http://www.gimp.org/downloads) or another photo editing tool.
+
