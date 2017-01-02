@@ -63,6 +63,8 @@ You can use properties as a setter as well. Let's say you need to do more than a
 def var(self, value):
 	self._var = value
 	self._boolean = True
+```
+Note that the method name is `var` but the variable is `_var` this is very important, and it makes sense if you think about in terms of Java. In Java, you use setters with private variables, and in python, a 'weak' private variable is denoted by a leaading underscore. In reality this differentiates between the method and the variable in as little way possible. 
 
 ##Testing and Deploying
 pyfrc comes with builtin tests. These tests are to help you catch any errors in your code. To test code on its own, you can run `./robot.py test`. If you are deploying code to the robot, use the `deploy` argument. This will automatically test the code and deploy it. The code *will not* deploy if the tests don't pass. However, there are some situations when you want to bypass the tests and deploy the code. Likely scenarious are if the tests are failing in autonomous, but you want to run teleop. To bypass the tests:
