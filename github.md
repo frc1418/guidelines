@@ -52,7 +52,7 @@ You don't have to use full sentences, but the names should be clear, concise, an
 * Use `.gitignore` files to prevent committing of useless temporary folders and files like `.DS_Store`, `.project`, `.pydevproject`, `node_modules`, and others. [Help with .gitignore files](https://help.github.com/articles/ignoring-files)
 
 ## Rebasing
-Sometimes when you make a pull request there a some changes that need to be made to make the feature complete. This is normal, as you may not always think of everything from the get go, but it does create a problem. Every time you commit and update the feature it will be added to the commit history. This is generally not what you want. For example, let's say you create `drive.py`, but accidently leave out an important line of code. You could have two commits: `Add drive.py` and `Add line of code`, but it would make sense and look better for it to all be under `Add drive.py`. To merge these, we use `git rebase`
+Sometimes when you make a pull request there a some changes that need to be made to make the feature complete. This is normal, as you may not always think of everything from the get go, but it does create a problem. Every time you commit and update the feature it will be added to the commit history. This is generally not what you want. For example, let's say you create `drive.py`, but accidently leave out an important line of code. You could have two commits: `Add drive.py` and `Add line of code`, but it would make sense and look better for it to all be under `Add drive.py`. To merge these, we use `git rebase`.
 
 Rebasing is a way of rewriting git history. There are some more advanced things you can do with it but for now we're going to talk about squashing commits. 
 
@@ -106,7 +106,7 @@ s a931ac7 addition 2
 # However, if you remove everything, the rebase will be aborted.
 #
 ``` 
-Once you do that, save and exit. You will be greeted by another screen. 
+Once you do that, save and exit (to save and exit `vim`, the default git text editor, press `esc` then type `:wq` and press Enter). You will be greeted by another screen. 
 
 ```
 # This is a combination of 3 commits.
@@ -129,4 +129,4 @@ Now you're ready to push. This will be a special push because we need to force i
 
 `git push origin +branch`
 
-And now your PR will show 1 commit, with all the changes
+And now your PR will show 1 commit, with all the changes.
