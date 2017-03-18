@@ -51,7 +51,7 @@ You don't have to use full sentences, but the names should be clear, concise, an
     * Relatedly, your GitHub account should have your real name on it so we can tell who's who. (You can use whatever you want for your username, but your real name should be used on the _Name_ portion of your account page.)
 * Use `.gitignore` files to prevent committing of useless temporary folders and files like `.DS_Store`, `.project`, `.pydevproject`, `node_modules`, and others. [Help with .gitignore files](https://help.github.com/articles/ignoring-files)
 
-##Rebasing
+## Rebasing
 Sometimes when you make a pull request there a some changes that need to be made to make the feature complete. This is normal, as you may not always think of everything from the get go, but it does create a problem. Every time you commit and update the feature it will be added to the commit history. This is generally not what you want. For example, let's say you create `drive.py`, but accidently leave out an important line of code. You could have two commits: `Add drive.py` and `Add line of code`, but it would make sense and look better for it to all be under `Add drive.py`. To merge these, we use `git rebase`
 
 Rebasing is a way of rewriting git history. There are some more advanced things you can do with it but for now we're going to talk about squashing commits. 
