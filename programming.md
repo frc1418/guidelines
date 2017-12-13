@@ -33,7 +33,7 @@ Do not write code that violates these regulations. For those with write access t
   | Class Names | CapitalizedWords |ModularAutonomous |
   | Variables | lowercase\_with\_underscore | elevator\_position |
   | Methods | lowercase\_with\_underscore <br> \_leading\_underscore\_for\_private | get\_gyro <br> \_detect\_position\_index|
-  | Spaces | 4 Spaces, no tabs <br> Don't leave trailing whitespace | You can tell eclipse to put in 4 <br>spaces instead of tabs|
+  | Spaces | 4 Spaces, no tabs <br> Don't leave trailing whitespace, you may wish to guard against accidental trailing spaces by running `git config --global core.whitespace warn` | You can tell eclipse to put in 4 <br>spaces instead of tabs|
   | Modules | lowercasewords | shootball.py |
   | Folders | lowercasewords |  automations |
 
