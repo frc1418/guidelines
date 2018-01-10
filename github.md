@@ -2,8 +2,8 @@
 
 ## Profiles
 * Use the portrait of yourself from [the Team Profiles page](http://1418.team/team) on our website as your GitHub user picture. Photos can be found by locating them on that page, or by visiting http://1418.team/assets/img/team/firstname-lastname.png.
-* Your username should be in the format FirstLast or firstlast. It must be your actual name.
-* Your account name must also be your real name.
+* Your username must be in the format FirstLast if it's available. In the event that the name is already taken, you can try switching between a full name and a nickname, or using an initial rather than a full name, or combining your first and last names into one word. For example, "Jack Smith" could become "jamith," as long as the username is clearly representative of your real name and doesn't include other characters.
+* Your account name must be your real name.
 
 * When setting up Git for the first time, you must run the following two commands:
 
@@ -12,7 +12,7 @@
 
 This will allow GitHub to recognize your commits as tied to your own account.
 
-* It's also highly recommended that you [securely sign your commits](https://github.com/pstadler/keybase-gpg-github#readme), but due to the difficulty of doing that it's not required.
+* It's also highly recommended, though not required, that you [securely sign your commits](https://github.com/pstadler/keybase-gpg-github#readme).
 
 ## Setting up your repo
 Start off by creating a fork of the repo you will be working on. Don't clone it directly. This allows you to create Pull Requests, which are ways of allowing your code to be peer reviewed before merging it with the master branch.
@@ -64,8 +64,8 @@ You don't have to use full sentences, but the names should be clear, concise, an
 
 
 * Only commit through your own GitHub account. No using dummy accounts.
-    * Relatedly, your GitHub account should have your real name on it so we can tell who's who. (You can use whatever you want for your username, but your real name should be used on the _Name_ portion of your account page.)
-* Use `.gitignore` files to prevent committing of useless temporary folders and files like `.DS_Store`, `.project`, `.pydevproject`, `node_modules`, and others. [Help with .gitignore files](https://help.github.com/articles/ignoring-files)
+    * Relatedly, your GitHub account should have your real name on it so we can tell who's who. Refer to the naming guidelines at the starting of this guide for more information.
+* Use `.gitignore` files to prevent committing of useless temporary folders and files like `.DS_Store`, `.project`, `.pydevproject`, `node_modules`, `.deploy_cfg` and others. [Help with .gitignore files](https://help.github.com/articles/ignoring-files)
 
 ## Rebasing
 Sometimes when you make a pull request there a some changes that need to be made to make the feature complete. This is normal, as you may not always think of everything from the get go, but it does create a problem. Every time you commit and update the feature it will be added to the commit history. This is generally not what you want. For example, let's say you create `drive.py`, but accidently leave out an important line of code. You could have two commits: `Add drive.py` and `Add line of code`, but it would make sense and look better for it to all be under `Add drive.py`. To merge these, we use `git rebase`.
