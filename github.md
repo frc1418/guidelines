@@ -1,4 +1,4 @@
-# 1418 Github Guildlines
+# 1418 Github Guidelines
 
 ## Profiles
 * Use the portrait of yourself from [the Team Profiles page](http://1418.team/team) on our website as your GitHub user picture. Photos can be found by locating them on that page, or by visiting http://1418.team/assets/img/team/firstname-lastname.png.
